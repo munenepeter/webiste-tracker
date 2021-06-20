@@ -4,7 +4,8 @@ require_once "src/class.Diff.php";
 
 echo "Hi, Just started retrieving your files" . PHP_EOL . 'Please hold on....' . PHP_EOL;
 // sample for exmaples http://help.websiteos.com/websiteos/example_of_a_simple_html_page.htm
-//where to store the file
+
+//where to store the file with folder
 // $filename = 'Data/'.date("Y-m-d 01:00:00") . '.txt';
 // $dirname = dirname($filename);
 
@@ -16,6 +17,8 @@ fwrite($myfile, $content);
 fclose($myfile);
 
 echo "Successfully Fetched the data". PHP_EOL;
+
+
 //Check two file for changes please refer here
 //https://code.iamkate.com/php/diff-implementation/
 $Changesfilename = '20210620062405pm&20210620054847pmChange.html';
