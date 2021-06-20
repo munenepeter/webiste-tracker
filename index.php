@@ -19,7 +19,7 @@ fclose($myfile);
 echo "Successfully Fetched the data". PHP_EOL;
 
 
-//Check two file for changes please refer here
+//Check the two files for changes please refer here
 //https://code.iamkate.com/php/diff-implementation/
 $Changesfilename = '20210620062405pm&20210620054847pmChange.html';
 
