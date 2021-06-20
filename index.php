@@ -16,7 +16,7 @@ fwrite($myfile, $content);
 fclose($myfile);
 
 echo "Successfully Fetched the data". PHP_EOL;
-//we well get the diffrences please refer here
+//Check two file for changes please refer here
 //https://code.iamkate.com/php/diff-implementation/
 $Changesfilename = '20210620062405pm&20210620054847pmChange.html';
 
