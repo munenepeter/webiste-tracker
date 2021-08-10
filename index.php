@@ -21,13 +21,14 @@ echo "Successfully Fetched the data". PHP_EOL;
 
 //Check the two files for changes please refer here
 //https://code.iamkate.com/php/diff-implementation/
-$Changesfilename = '20210620062405pm&20210620054847pmChange.html';
+$changesfilename = '20210620062405pm&20210620054847pmChange.html';
 
-$FileChanges = fopen($Changesfilename, "ws") or die("Unable to open file!");
+$fileChanges = fopen($changesfilename, "ws") or die("Unable to open file!");
 $differences = Diff::toHTML(Diff::compareFiles('20210620062405pm.html', '20210620054847pm.html'));
 
 
-fwrite($FileChanges, $differences);
-fclose($FileChanges);
+fwrite($fileChanges, $differences);
+fclose($fileChanges);
 
 echo "Finished checking for changes". PHP_EOL;
+echo "Check your changes by opening this file". PHP_EOL;
