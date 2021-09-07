@@ -5,7 +5,7 @@ require_once "src/class.Diff.php";
 echo "Hi, Just started retrieving your files" . PHP_EOL . 'Please hold on....' . PHP_EOL;
 // sample for exmaples http://help.websiteos.com/websiteos/example_of_a_simple_html_page.htm
 
-//where to store the file with folder
+//where to store the file with folder & add a date as a unque identifier
 // $filename = 'Data/'.date("Y-m-d 01:00:00") . '.txt';
 // $dirname = dirname($filename);
 
