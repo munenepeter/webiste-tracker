@@ -4,7 +4,10 @@ require_once "src/class.Diff.php";
 require_once "src/functions.php";
 
 echo "Hi, Just started retrieving your files" . PHP_EOL . 'Please hold on....' . PHP_EOL;
-echo progress_bar(10, 20);
+for ($i = 0; $i < 20 ; $i++) {
+ echo progress_bar($i, 20);
+}
+
 // sample for exmaples http://help.websiteos.com/websiteos/example_of_a_simple_html_page.htm
 
 //where to store the file with folder & add a date as a unque identifier
