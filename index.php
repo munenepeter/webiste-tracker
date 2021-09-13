@@ -10,7 +10,7 @@ echo "Hi, Just started retrieving your files"
       . PHP_EOL;
 
 
-for ($i = 0; $i < 20 ; $i++) {
+for ($i = 0; $i <= 20 ; $i++) {
  echo progress_bar($i, 20);
 }
 
@@ -22,17 +22,19 @@ $time  = date("Ymdhisa");
 $fileOriginHost = getHost($url);
 $filename = $fileOriginHost . $time . '.html';
 
-echo  $filename;
+//clearstatcache();
+if(!file_exists("help.websiteos.com20210913071220pm.html")){
 
-exit;
+    $myfile = fopen($filename, "ws") or die("Unable to open file!");
+    $content  = file_get_html($url);
 
-$myfile = fopen($filename, "ws") or die("Unable to open file!");
-$content  = file_get_html($url);
+    fwrite($myfile, $content);
+    fclose($myfile);
+    //clearstatcache();
+    echo "Successfully Fetched the data" . PHP_EOL;
+}
 
-fwrite($myfile, $content);
-fclose($myfile);
 
-echo "Successfully Fetched the data". PHP_EOL;
 
 //Check if the file to be compared with is present
 //if not just  initliaze and exit;
@@ -44,11 +46,11 @@ echo "Successfully Fetched the data". PHP_EOL;
 $changesfilename = '20210620062405pm&20210620054847pmChange.html';
 
 $fileChanges = fopen($changesfilename, "ws") or die("Unable to open file!");
-$differences = Diff::toHTML(Diff::compareFiles($filename, '20210913062534pm'));
+$differences = Diff::toHTML(Diff::compareFiles($filename, 'help.websiteos.com20210913071220pm.html'));
 
 
 fwrite($fileChanges, $differences);
 fclose($fileChanges);
 
 echo "Finished checking for changes". PHP_EOL;
-echo "Check your changes by opening this file". PHP_EOL;
+echo "Check your changes by opening this file $changesfilename". PHP_EOL;
