@@ -260,7 +260,7 @@ class Diff{
       }
       $html .=
           '<' . $element . '>'
-          . htmlspecialchars($line[0])
+          . html_entity_decode($line[0])
           . '</' . $element . '>';
 
       // extend the HTML with the separator
@@ -269,7 +269,7 @@ class Diff{
     }
 
     // return the HTML
-    return $html;
+    return htmlspecialchars_decode($html);
 
   }
 
