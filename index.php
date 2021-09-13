@@ -14,13 +14,14 @@ echo "Hi, Just started retrieving your files"
       'Please hold on....' 
       . PHP_EOL;
 
-
+//Include progress bar
 for ($i = 0; $i <= 20 ; $i++) {
- echo progress_bar($i, 20);
+ echo progress_bar($i, 20) . PHP_EOL;
 }
-
+//Check if there is an internet connection
 checkInternet();
 
+//Set the variables
 $url = "http://help.websiteos.com/websiteos/example_of_a_simple_html_page.htm";
 
 
