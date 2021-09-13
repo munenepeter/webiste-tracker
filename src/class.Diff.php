@@ -368,16 +368,13 @@ class Diff{
 
     // loop over the matching lines, adding them to the HTML
     while ($index < count($diff) && $diff[$index][1] == $type){
-      $html .=
-          '<span>'
-          . htmlspecialchars($diff[$index][0])
-          . '</span>'
+      $html .= html_entity_decode($diff[$index][0])
           . $separator;
       $index ++;
     }
 
     // return the HTML
-    return $html;
+    return htmlspecialchars_decode($html);
 
   }
 
