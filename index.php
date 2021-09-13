@@ -2,8 +2,13 @@
 require_once "src/simple_html_dom.php";
 require_once "src/class.Diff.php";
 require_once "src/functions.php";
-
-
+/**
+  *-------------------------------------
+    !->REMEMBER TO REMOVE THE HARD-CODED DATA
+       MAKE IT DYNAMIC EITHER WITH A FILE OR
+       AS CLI ARGUMENTS
+ * ---------------------------------------
+ */
 echo "Hi, Just started retrieving your files"
       . PHP_EOL . 
       'Please hold on....' 
