@@ -3,27 +3,33 @@ require_once "src/simple_html_dom.php";
 require_once "src/class.Diff.php";
 require_once "src/functions.php";
 
-echo "Hi, Just started retrieving your files" . PHP_EOL . 'Please hold on....' . PHP_EOL;
+
+echo "Hi, Just started retrieving your files"
+      . PHP_EOL . 
+      'Please hold on....' 
+      . PHP_EOL;
+
+
 for ($i = 0; $i < 20 ; $i++) {
  echo progress_bar($i, 20);
 }
 
+checkInternet();
 // sample for exmaples http://help.websiteos.com/websiteos/example_of_a_simple_html_page.htm
 
 //where to store the file with folder & add a date as a unque identifier
 // $filename = 'Data/'.date("Y-m-d 01:00:00") . '.txt';
 // $dirname = dirname($filename);
-if (!$sock = @fsockopen('www.google.com', 80)) {
-    echo 'Not Connected, Please try again later';
-    exit;
-}
+$url = "http://help.websiteos.com/websiteos/example_of_a_simple_html_page.htm";
+
 $time  = date("Ymdhisa");
-$filename = $time . '.html';
+$fileOriginHost = getHost($url);
+$filename = $fileOriginHost . $time . '.html';
 
-
-
+echo  $filename;
+exit;
 $myfile = fopen($filename, "ws") or die("Unable to open file!");
-$content  = file_get_html('http://help.websiteos.com/websiteos/example_of_a_simple_html_page.htm');
+$content  = file_get_html($url);
 
 fwrite($myfile, $content);
 fclose($myfile);
