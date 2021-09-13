@@ -17,7 +17,11 @@ if (!$sock = @fsockopen('www.google.com', 80)) {
     echo 'Not Connected, Please try again later';
     exit;
 }
-$filename = date("Ymdhisa") . '.html';
+$time  = date("Ymdhisa");
+$filename = $time . '.html';
+
+
+
 $myfile = fopen($filename, "ws") or die("Unable to open file!");
 $content  = file_get_html('http://help.websiteos.com/websiteos/example_of_a_simple_html_page.htm');
 
