@@ -15,11 +15,7 @@ for ($i = 0; $i < 20 ; $i++) {
 }
 
 checkInternet();
-// sample for exmaples http://help.websiteos.com/websiteos/example_of_a_simple_html_page.htm
 
-//where to store the file with folder & add a date as a unque identifier
-// $filename = 'Data/'.date("Y-m-d 01:00:00") . '.txt';
-// $dirname = dirname($filename);
 $url = "http://help.websiteos.com/websiteos/example_of_a_simple_html_page.htm";
 
 $time  = date("Ymdhisa");
@@ -27,7 +23,9 @@ $fileOriginHost = getHost($url);
 $filename = $fileOriginHost . $time . '.html';
 
 echo  $filename;
+
 exit;
+
 $myfile = fopen($filename, "ws") or die("Unable to open file!");
 $content  = file_get_html($url);
 
@@ -35,6 +33,10 @@ fwrite($myfile, $content);
 fclose($myfile);
 
 echo "Successfully Fetched the data". PHP_EOL;
+
+//Check if the file to be compared with is present
+//if not just  initliaze and exit;
+
 
 
 //Check the two files for changes please refer here
