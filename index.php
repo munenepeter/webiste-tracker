@@ -37,12 +37,14 @@ if(!file_exists("$folder/help.websiteos.com20210913071220pm.html")){
     echo "Successfully Fetched the data" . PHP_EOL;
 }
 
+/*
+____________________________________________________
+Check if the file to be compared with is present
+if not just  initliaze and exit;
 
-
-//Check if the file to be compared with is present
-//if not just  initliaze and exit;
-
-
+MIGHT NEED TO RETHINK THE WHOLE APP
+_______________________________________________________
+*/
 
 //Check the two files for changes please refer here
 //https://code.iamkate.com/php/diff-implementation/
