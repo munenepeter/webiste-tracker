@@ -18,12 +18,15 @@ checkInternet();
 
 $url = "http://help.websiteos.com/websiteos/example_of_a_simple_html_page.htm";
 
+
+$folder = (!file_exists("data")) ? mkdir("data") : "data";
 $time  = date("Ymdhisa");
 $fileOriginHost = getHost($url);
-$filename = $fileOriginHost . $time . '.html';
+$filename = $folder . "/" . $fileOriginHost . $time . '.html';
+
 
 //clearstatcache();
-if(!file_exists("help.websiteos.com20210913071220pm.html")){
+if(!file_exists("$folder/help.websiteos.com20210913071220pm.html")){
 
     $myfile = fopen($filename, "ws") or die("Unable to open file!");
     $content  = file_get_html($url);
@@ -43,10 +46,10 @@ if(!file_exists("help.websiteos.com20210913071220pm.html")){
 
 //Check the two files for changes please refer here
 //https://code.iamkate.com/php/diff-implementation/
-$changesfilename = '20210620062405pm&20210620054847pmChange.html';
+$changesfilename = $folder . '/20210620062405pm&20210620054847pmChange.html';
 
 $fileChanges = fopen($changesfilename, "ws") or die("Unable to open file!");
-$differences = Diff::toHTML(Diff::compareFiles($filename, 'help.websiteos.com20210913071220pm.html'));
+$differences = Diff::toHTML(Diff::compareFiles($filename, $folder . '/help.websiteos.com20210913073243pm.html'));
 
 
 fwrite($fileChanges, $differences);
